@@ -7,6 +7,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 37, 102, 134),
       // AppBar
       appBar: AppBar(
         title: const Text('Ana Sayfa'),
