@@ -34,7 +34,7 @@ class CameraScreen extends StatelessWidget {
         backgroundColor: const Color.fromARGB(255, 178, 148, 214), // Pastel mor
         elevation: 0,
         title: const Text(
-          "Medya Ekranı",
+          "Medya Paylaşımları",
           style: TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.bold,

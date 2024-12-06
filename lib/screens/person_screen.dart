@@ -10,7 +10,7 @@ class PersonScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: const Color(0xFF4C6E97), // Pastel mavi
         title: const Text(
-          'Profil Ekranı',
+          'Profilim',
           style: TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.bold,
