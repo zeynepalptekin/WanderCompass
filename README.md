@@ -122,14 +122,13 @@ lib/
 
 ## Ekran Görüntüleri
 
-[assets/images/giris.png]
-[assets/images/anasayfa.png]
+[https://github.com/zeynepalptekin/WanderCompass/blob/main/giris.png]
+[(https://github.com/zeynepalptekin/WanderCompass/blob/main/anasayfa.png)]
 [assets/images/yanmenu.png]
-[assets/images/arama.png]
-[assets/images/konum.png]
-[assets/images/medya.png]
-[assets/images/profil.png]
-
+[(https://github.com/zeynepalptekin/WanderCompass/blob/main/arama.png)]
+[https://github.com/zeynepalptekin/WanderCompass/blob/main/konum.png]
+[https://github.com/zeynepalptekin/WanderCompass/blob/main/medya.png]
+[https://github.com/zeynepalptekin/WanderCompass/blob/main/profil.png]
   
 
 ## Projeye Katkı Sağlama
