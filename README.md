@@ -124,11 +124,12 @@ lib/
 
 [https://github.com/zeynepalptekin/WanderCompass/blob/main/giris.png]
 [(https://github.com/zeynepalptekin/WanderCompass/blob/main/anasayfa.png)]
-[assets/images/yanmenu.png]
+[https://github.com/zeynepalptekin/WanderCompass/blob/main/yanmenu.png]
 [(https://github.com/zeynepalptekin/WanderCompass/blob/main/arama.png)]
 [https://github.com/zeynepalptekin/WanderCompass/blob/main/konum.png]
 [https://github.com/zeynepalptekin/WanderCompass/blob/main/medya.png]
 [https://github.com/zeynepalptekin/WanderCompass/blob/main/profil.png]
+
   
 
 ## Projeye Katkı Sağlama
