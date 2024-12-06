@@ -11,10 +11,17 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: const Color.fromARGB(255, 136, 179, 196),
         // AppBar
         appBar: AppBar(
-          title: const Text('WanderCompass'),
+          backgroundColor: const Color.fromARGB(255, 136, 179, 196),
+          title: const Text(
+            'WanderCompass',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 40,
+            ),
+          ),
           actions: [
             IconButton(
               icon: const Icon(CupertinoIcons.bell),
@@ -144,7 +151,7 @@ class HomeScreen extends StatelessWidget {
 
         // Alt navigasyon çubuğu
         bottomNavigationBar: Container(
-          height: 70,
+          height: 80,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [

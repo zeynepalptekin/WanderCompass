@@ -12,7 +12,7 @@ final router = GoRouter(
   initialLocation: '/', // Başlangıç rotası
   routes: [
     GoRoute(
-      path: '/loading',
+      path: '/',
       builder: (context, state) => const LoadingScreen(),
     ),
     GoRoute(

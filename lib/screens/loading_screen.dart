@@ -11,7 +11,7 @@ class LoadingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 38, 56, 87),
+      backgroundColor: const Color.fromARGB(255, 121, 167, 139),
       body: SizedBox.expand(
         //width: double.infinity,
         child: Column(
@@ -19,8 +19,8 @@ class LoadingScreen extends StatelessWidget {
             // Logo bölümü
             Expanded(
               child: Container(
-                width: 250,
-                height: 250,
+                width: 300,
+                height: 300,
                 child: Image.asset(
                   'assets/images/logo.webp',
                   fit: BoxFit.contain,
