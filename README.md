@@ -122,7 +122,13 @@ lib/
 
 ## Ekran Görüntüleri
 
-[Uygulama ekran görüntüleri buraya eklenecek]
+[assets/images/giris.png]
+[assets/images/anasayfa.png]
+[assets/images/yanmenu.png]
+[assets/images/arama.png]
+[assets/images/konum.png]
+[assets/images/medya.png]
+[assets/images/profil.png]
 
   
 
