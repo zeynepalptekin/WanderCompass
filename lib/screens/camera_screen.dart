@@ -28,10 +28,9 @@ class CameraScreen extends StatelessWidget {
     ];
 
     return Scaffold(
-      backgroundColor:
-          const Color(0xFFF4F7FC), // Yumuşak pastel mavi tonlarında arka plan
+      backgroundColor: const Color(0xFFF4F7FC),
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 178, 148, 214), // Pastel mor
+        backgroundColor: const Color.fromARGB(255, 178, 148, 214),
         elevation: 0,
         title: const Text(
           "Medya Paylaşımları",

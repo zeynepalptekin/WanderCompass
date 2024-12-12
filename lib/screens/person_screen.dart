@@ -6,9 +6,9 @@ class PersonScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF1F5FB), // Soft pastel arka plan
+      backgroundColor: const Color(0xFFF1F5FB),
       appBar: AppBar(
-        backgroundColor: const Color(0xFF4C6E97), // Pastel mavi
+        backgroundColor: const Color(0xFF4C6E97),
         title: const Text(
           'Profilim',
           style: TextStyle(
@@ -167,7 +167,7 @@ class PersonScreen extends StatelessWidget {
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
-                color: const Color(0xFF4C6E97), // Pastel mavi
+                color: const Color(0xFF4C6E97),
               ),
             ),
             const SizedBox(height: 8),

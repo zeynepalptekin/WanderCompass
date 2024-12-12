@@ -26,10 +26,9 @@ class MapScreen extends StatelessWidget {
     ];
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF0F4F8), // Pastel mavi arka plan
+      backgroundColor: const Color(0xFFF0F4F8),
       appBar: AppBar(
-        backgroundColor:
-            const Color.fromARGB(255, 141, 193, 218), // Pastel mavi
+        backgroundColor: const Color.fromARGB(255, 141, 193, 218),
         elevation: 0,
         title: const Text(
           "Seyahat Rotası Önerileri",
@@ -115,7 +114,7 @@ class MapScreen extends StatelessWidget {
                     print("Daha fazla bilgi için: $title");
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF80CBC4), // Pastel yeşil
+                    backgroundColor: const Color(0xFF80CBC4),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
                     ),
