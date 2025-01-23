@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_app/screens/camera_screen.dart';
 import 'package:flutter_app/screens/map_screen.dart';
 import 'package:flutter_app/screens/person_screen.dart';
