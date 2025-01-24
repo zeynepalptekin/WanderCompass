@@ -10,10 +10,10 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: const Color.fromARGB(215, 130, 192, 153),
+        backgroundColor: const Color.fromARGB(230, 250, 252, 253),
         // AppBar
         appBar: AppBar(
-          backgroundColor: const Color.fromARGB(215, 130, 192, 153),
+          backgroundColor: const Color.fromARGB(230, 250, 252, 253),
           title: const Text(
             'WanderCompass',
             style: TextStyle(
