@@ -69,6 +69,7 @@ class MapScreen extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
           boxShadow: [
             BoxShadow(
+              // ignore: deprecated_member_use
               color: Colors.black.withOpacity(0.1),
               blurRadius: 10,
               offset: const Offset(0, 5),
@@ -111,6 +112,7 @@ class MapScreen extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () {
                     // Daha fazla bilgi veya detay sayfasına yönlendirme
+                    // ignore: avoid_print
                     print("Daha fazla bilgi için: $title");
                   },
                   style: ElevatedButton.styleFrom(

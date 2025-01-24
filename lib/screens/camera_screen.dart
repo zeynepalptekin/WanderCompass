@@ -80,6 +80,7 @@ class CameraScreen extends StatelessWidget {
           borderRadius: BorderRadius.circular(18), // Daha yumuşak köşeler
           boxShadow: [
             BoxShadow(
+              // ignore: deprecated_member_use
               color: Colors.black.withOpacity(0.15),
               blurRadius: 15,
               offset: const Offset(0, 8), // Gölgeyi daha belirgin yap

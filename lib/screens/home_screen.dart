@@ -10,10 +10,10 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: const Color.fromARGB(255, 136, 179, 196),
+        backgroundColor: const Color.fromARGB(215, 130, 192, 153),
         // AppBar
         appBar: AppBar(
-          backgroundColor: const Color.fromARGB(255, 136, 179, 196),
+          backgroundColor: const Color.fromARGB(215, 130, 192, 153),
           title: const Text(
             'WanderCompass',
             style: TextStyle(
@@ -36,7 +36,7 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             children: [
               // Drawer Header
-              Container(
+              SizedBox(
                 height: 200,
                 //color: Colors.blue,
                 child: Column(
@@ -149,7 +149,7 @@ class HomeScreen extends StatelessWidget {
         ),
 
         // Alt navigasyon çubuğu
-        bottomNavigationBar: Container(
+        bottomNavigationBar: SizedBox(
           height: 80,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,

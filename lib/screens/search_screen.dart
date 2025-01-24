@@ -31,6 +31,7 @@ class SearchScreen extends StatelessWidget {
                 borderRadius: BorderRadius.circular(12),
                 boxShadow: [
                   BoxShadow(
+                    // ignore: deprecated_member_use
                     color: Colors.black.withOpacity(0.1),
                     blurRadius: 10,
                     offset: const Offset(0, 5),
@@ -47,6 +48,7 @@ class SearchScreen extends StatelessWidget {
                 ),
                 onChanged: (value) {
                   // Kullanıcı girdisini işleme
+                  // ignore: avoid_print
                   print("Arama girdisi: $value");
                 },
               ),
@@ -87,6 +89,7 @@ class SearchScreen extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
           boxShadow: [
             BoxShadow(
+              // ignore: deprecated_member_use
               color: Colors.black.withOpacity(0.1),
               blurRadius: 10,
               offset: const Offset(0, 5),
@@ -108,6 +111,7 @@ class SearchScreen extends StatelessWidget {
           ),
           onTap: () {
             // Tıklandığında bir işlem yapılabilir
+            // ignore: avoid_print
             print("Tıklanan öneri: $suggestion");
           },
         ),
