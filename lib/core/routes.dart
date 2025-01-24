@@ -5,6 +5,8 @@ import 'package:flutter_app/screens/search_screen.dart';
 import 'package:go_router/go_router.dart';
 import '../screens/loading_screen.dart';
 import '../screens/home_screen.dart';
+// ignore: unused_import
+import 'package:flutter/material.dart';
 
 // Router yapılandırması
 final router = GoRouter(
@@ -12,27 +14,44 @@ final router = GoRouter(
   routes: [
     GoRoute(
       path: '/',
-      builder: (context, state) => const LoadingScreen(),
+      pageBuilder: (context, state) => NoTransitionPage<void>(
+        key: state.pageKey,
+        child: const LoadingScreen(),
+      ),
     ),
     GoRoute(
       path: '/home',
-      builder: (context, state) => const HomeScreen(),
+      pageBuilder: (context, state) => NoTransitionPage<void>(
+        key: state.pageKey,
+        child: const HomeScreen(),
+      ),
     ),
     GoRoute(
       path: '/person',
-      builder: (context, state) => const PersonScreen(),
+      pageBuilder: (context, state) => NoTransitionPage<void>(
+        key: state.pageKey,
+        child: const PersonScreen(),
+      ),
     ),
     GoRoute(
       path: '/camera',
-      builder: (context, state) => const CameraScreen(),
+      pageBuilder: (context, state) => NoTransitionPage<void>(
+        key: state.pageKey,
+        child: const CameraScreen(),
+      ),
     ),
     GoRoute(
       path: '/map',
-      builder: (context, state) => const MapScreen(),
+      pageBuilder: (context, state) => NoTransitionPage<void>(
+        key: state.pageKey,
+        child: const MapScreen(),
+      ),
     ),
     GoRoute(
-      path: '/search',
-      builder: (context, state) => const SearchScreen(),
-    ),
+        path: '/search',
+        pageBuilder: (context, state) => NoTransitionPage<void>(
+              key: state.pageKey,
+              child: const SearchScreen(),
+            )),
   ],
 );

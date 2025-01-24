@@ -10,18 +10,22 @@ class MapScreen extends StatelessWidget {
       {
         "title": "Kapadokya",
         "subtitle": "Türkiye'nin büyüleyici peri bacaları",
+        "image": "assets/images/kapadokya.jpg", // Görsel ekleyebilirsiniz
       },
       {
         "title": "Kültür Turu",
         "subtitle": "İtalya'nın tarihi güzellikleri",
+        "image": "assets/images/italya.jpg", // Görsel ekleyebilirsiniz
       },
       {
         "title": "Kiraz Çiçekleri",
         "subtitle": "Güney Kore'de baharın muhteşem renkleri",
+        "image": "assets/images/kore.jpg", // Görsel ekleyebilirsiniz
       },
       {
         "title": "Kuzey Işıkları",
         "subtitle": "Norveç'te doğanın büyüleyici ışık gösterisi",
+        "image": "assets/images/norvec.jpg", // Görsel ekleyebilirsiniz
       },
     ];
 
@@ -50,6 +54,7 @@ class MapScreen extends StatelessWidget {
             return _buildTravelCard(
               title: destination["title"]!,
               subtitle: destination["subtitle"]!,
+              imagePath: destination["image"]!,
             );
           },
         ),
@@ -60,6 +65,7 @@ class MapScreen extends StatelessWidget {
   Widget _buildTravelCard({
     required String title,
     required String subtitle,
+    required String imagePath,
   }) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
@@ -79,6 +85,14 @@ class MapScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            // Şehir Görseli
+            AspectRatio(
+              aspectRatio: 16 / 9,
+              child: Image.asset(
+                imagePath,
+                fit: BoxFit.cover,
+              ),
+            ),
             // Başlık ve Alt Başlık
             Padding(
               padding: const EdgeInsets.all(16.0),

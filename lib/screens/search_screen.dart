@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart'; // Cupertino ikonları için ekledik
+
+import '../widgets/bottom_menu.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
@@ -6,115 +9,168 @@ class SearchScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF5F5F5),
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: const Text(
-          "Arama",
-          style: TextStyle(
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
+        title: TextField(
+          decoration: InputDecoration(
+            hintText: "Keşfetmek İstediğiniz Yeri Arayın", // Arama metni
+            filled: true,
+            fillColor: Theme.of(context).colorScheme.surfaceContainerHighest,
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(50),
+              borderSide: BorderSide.none,
+            ),
+            prefixIcon: Icon(
+              CupertinoIcons.search, // Cupertino arama ikonu
+              color: Colors.black, // İkon rengi siyah
+            ),
+            hintStyle: TextStyle(color: Colors.grey), // Hint metni rengi gri
           ),
+          style: TextStyle(color: Colors.black), // Yazılacak metin rengi siyah
         ),
-        centerTitle: true,
-        elevation: 0,
-        iconTheme: const IconThemeData(color: Colors.black),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(12),
-                boxShadow: [
-                  BoxShadow(
-                    // ignore: deprecated_member_use
-                    color: Colors.black.withOpacity(0.1),
-                    blurRadius: 10,
-                    offset: const Offset(0, 5),
+      body: CustomScrollView(
+        slivers: [
+          // Son Keşifler kısmı
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: EdgeInsets.all(16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Son Keşifler", // Başlık
+                    style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                        color: Theme.of(context).colorScheme.onSurface),
+                  ),
+                  SizedBox(height: 16),
+                  Wrap(
+                    spacing: 8,
+                    children: [
+                      ElevatedButton(
+                        onPressed: () {}, // İstanbul seçimi
+                        child: Text("İstanbul",
+                            style: TextStyle(
+                                color: Colors.black)), // Yazıyı siyah yapıyoruz
+                      ),
+                      ElevatedButton(
+                        onPressed: () {}, // Paris seçimi
+                        child: Text("Paris",
+                            style: TextStyle(
+                                color: Colors.black)), // Yazıyı siyah yapıyoruz
+                      ),
+                      ElevatedButton(
+                        onPressed: () {}, // Tokyo seçimi
+                        child: Text("Tokyo",
+                            style: TextStyle(
+                                color: Colors.black)), // Yazıyı siyah yapıyoruz
+                      ),
+                    ],
                   ),
                 ],
               ),
-              child: TextField(
-                decoration: InputDecoration(
-                  hintText: "Aramak istediğiniz şeyi yazın...",
-                  hintStyle: TextStyle(color: Colors.grey.shade400),
-                  border: InputBorder.none,
-                  prefixIcon: const Icon(Icons.search, color: Colors.grey),
-                  contentPadding: const EdgeInsets.all(16),
-                ),
-                onChanged: (value) {
-                  // Kullanıcı girdisini işleme
-                  // ignore: avoid_print
-                  print("Arama girdisi: $value");
-                },
-              ),
             ),
-            const SizedBox(height: 20),
-            const Text(
-              "Popüler Aramalar",
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: Colors.black87,
+          ),
+
+          // Şehirler listesi
+          SliverPadding(
+            padding: EdgeInsets.all(16),
+            sliver: SliverGrid(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2, // İki sütun
+                mainAxisSpacing: 16,
+                crossAxisSpacing: 16,
+                childAspectRatio: 1.0, // Simetrik görünüm
               ),
-            ),
-            const SizedBox(height: 10),
-            Expanded(
-              child: ListView(
-                children: [
-                  _buildSearchSuggestion("Popüler Seyahat Noktaları"),
-                  _buildSearchSuggestion("Yakındaki Restoranlar"),
-                  _buildSearchSuggestion("Doğa Yürüyüşü Rotaları"),
-                  _buildSearchSuggestion("En İyi Plajlar"),
+              delegate: SliverChildListDelegate(
+                [
+                  _buildCityCard(
+                    context,
+                    "İstanbul",
+                    "Tarihin ve kültürün başkenti.",
+                    "assets/images/istanbul.jpg", // Görselin yolu
+                  ),
+                  _buildCityCard(
+                    context,
+                    "Paris",
+                    "Sanatın ve romantizmin şehri.",
+                    "assets/images/paris.jpg", // Görselin yolu
+                  ),
+                  _buildCityCard(
+                    context,
+                    "Tokyo",
+                    "Teknolojinin ve geleneklerin birleşimi.",
+                    "assets/images/tokyo.jpg", // Görselin yolu
+                  ),
+                  _buildCityCard(
+                    context,
+                    "New York",
+                    "Dünyanın kalbi, ışıklar şehri.",
+                    "assets/images/newyork.jpg", // Görselin yolu
+                  ),
+                  _buildCityCard(
+                    context,
+                    "Barcelona",
+                    "Mimari harikalar ve Akdeniz esintileri.",
+                    "assets/images/barcelona.jpg", // Görselin yolu
+                  ),
                 ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
+      bottomNavigationBar: BottomMenu(),
     );
   }
 
-  // Popüler arama kartı
-  Widget _buildSearchSuggestion(String suggestion) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(12),
-          boxShadow: [
-            BoxShadow(
-              // ignore: deprecated_member_use
-              color: Colors.black.withOpacity(0.1),
-              blurRadius: 10,
-              offset: const Offset(0, 5),
+  // Şehir kartını oluşturan fonksiyon
+  Widget _buildCityCard(
+    BuildContext context,
+    String title,
+    String description,
+    String imagePath,
+  ) {
+    return Card(
+      clipBehavior: Clip.antiAlias,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: Column(
+        children: [
+          AspectRatio(
+            aspectRatio: 16 / 9,
+            child: Image.asset(
+              imagePath, // Görsel dosyasının yolu
+              fit: BoxFit.cover,
             ),
-          ],
-        ),
-        child: ListTile(
-          leading: const Icon(
-            Icons.trending_up,
-            color: Colors.blueAccent,
           ),
-          title: Text(
-            suggestion,
-            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+          Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                        color: Colors.black, // Yazı rengini siyah yapıyoruz
+                        fontWeight: FontWeight.bold,
+                      ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                SizedBox(height: 8),
+                Text(
+                  description,
+                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        color: Colors.black, // Yazı rengini siyah yapıyoruz
+                      ),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ],
+            ),
           ),
-          trailing: const Icon(
-            Icons.chevron_right,
-            color: Colors.grey,
-          ),
-          onTap: () {
-            // Tıklandığında bir işlem yapılabilir
-            // ignore: avoid_print
-            print("Tıklanan öneri: $suggestion");
-          },
-        ),
+        ],
       ),
     );
   }
