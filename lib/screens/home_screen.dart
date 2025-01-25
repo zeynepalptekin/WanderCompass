@@ -136,12 +136,17 @@ class HomeScreen extends StatelessWidget {
                 Navigator.pop(context);
               },
             ),
+            // Gece/Gündüz Modu
             ListTile(
               leading: const Icon(CupertinoIcons.circle_bottomthird_split),
               title: const Text('Gece/Gündüz Modu'),
-              onTap: () {
-                Navigator.pop(context);
-              },
+              trailing: Switch(
+                value: isDarkMode,
+                onChanged: (value) {
+                  Provider.of<ThemeProvider>(context, listen: false)
+                      .toggleTheme();
+                },
+              ),
             ),
           ],
         ),

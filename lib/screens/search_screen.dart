@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart'; // Cupertino ikonları için ekledik
-
-import '../widgets/bottom_menu.dart';
+import 'package:go_router/go_router.dart'; // Sayfalar arası geçiş için GoRouter ekledik
+import '../widgets/bottom_menu.dart'; // Alt menü widget'ını import ettik
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
@@ -47,19 +47,28 @@ class SearchScreen extends StatelessWidget {
                     spacing: 8,
                     children: [
                       ElevatedButton(
-                        onPressed: () {}, // İstanbul seçimi
+                        onPressed: () {
+                          // İstanbul seçimi
+                          context.go('/home'); // Home sayfasına yönlendir
+                        },
                         child: Text("İstanbul",
                             style: TextStyle(
                                 color: Colors.black)), // Yazıyı siyah yapıyoruz
                       ),
                       ElevatedButton(
-                        onPressed: () {}, // Paris seçimi
+                        onPressed: () {
+                          // Paris seçimi
+                          context.go('/home'); // Home sayfasına yönlendir
+                        },
                         child: Text("Paris",
                             style: TextStyle(
                                 color: Colors.black)), // Yazıyı siyah yapıyoruz
                       ),
                       ElevatedButton(
-                        onPressed: () {}, // Tokyo seçimi
+                        onPressed: () {
+                          // Tokyo seçimi
+                          context.go('/home'); // Home sayfasına yönlendir
+                        },
                         child: Text("Tokyo",
                             style: TextStyle(
                                 color: Colors.black)), // Yazıyı siyah yapıyoruz
@@ -119,7 +128,7 @@ class SearchScreen extends StatelessWidget {
           ),
         ],
       ),
-      bottomNavigationBar: BottomMenu(),
+      bottomNavigationBar: const BottomMenu(), // Alt menüyü ekliyoruz
     );
   }
 

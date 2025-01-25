@@ -8,7 +8,7 @@ void main() {
   runApp(
     ChangeNotifierProvider(
       create: (_) => ThemeProvider(),
-      child: MyApp(),
+      child: const MyApp(),
     ),
   );
 }
@@ -18,15 +18,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<ThemeProvider>(builder: (context, themeProvider, child) {
-      return MaterialApp.router(
-        title: 'Flutter App',
-        themeMode: themeProvider.isDark ? ThemeMode.dark : ThemeMode.light,
-        theme: lightTheme,
-        darkTheme: darkTheme,
-        routerConfig: router, // go_router yapılandırmamızı kullan
-        debugShowCheckedModeBanner: false, // Debug bandını kaldır
-      );
-    });
+    final themeProvider = Provider.of<ThemeProvider>(context);
+
+    return MaterialApp.router(
+      title: 'Flutter App',
+      themeMode: themeProvider.isDark ? ThemeMode.dark : ThemeMode.light,
+      theme: lightTheme,
+      darkTheme: darkTheme,
+      routerConfig: router, // go_router yapılandırmamızı kullan
+      debugShowCheckedModeBanner: false, // Debug bandını kaldır
+    );
   }
 }

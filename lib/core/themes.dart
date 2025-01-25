@@ -34,6 +34,7 @@ const darkColors = {
   "error": Color.fromARGB(255, 244, 67, 54),
   "onError": Color.fromARGB(255, 255, 255, 255),
 };
+
 final lightTheme = ThemeData(
   brightness: Brightness.light,
   colorScheme: ColorScheme(
