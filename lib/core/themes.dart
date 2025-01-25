@@ -12,8 +12,8 @@ class ThemeProvider with ChangeNotifier {
 }
 
 const colors = {
-  "primary": Color.fromARGB(255, 60, 147, 201),
-  "onPrimary": Color.fromARGB(255, 255, 255, 255),
+  "primary": Color.fromARGB(255, 135, 174, 199),
+  "onPrimary": Color.fromARGB(255, 5, 5, 5),
   "secondary": Color.fromARGB(255, 241, 241, 241),
   "onSecondary": Color.fromARGB(255, 5, 5, 5),
   "surface": Color.fromARGB(255, 255, 255, 255),
@@ -24,7 +24,7 @@ const colors = {
 };
 
 const darkColors = {
-  "primary": Color.fromARGB(255, 13, 42, 70),
+  "primary": Color.fromARGB(255, 20, 34, 46),
   "onPrimary": Color.fromARGB(255, 254, 254, 254),
   "secondary": Color.fromARGB(255, 27, 51, 72),
   "onSecondary": Color.fromARGB(255, 255, 255, 255),
