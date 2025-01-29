@@ -5,8 +5,9 @@ import 'package:flutter_app/screens/search_screen.dart';
 import 'package:go_router/go_router.dart';
 import '../screens/loading_screen.dart';
 import '../screens/home_screen.dart';
-// ignore: unused_import
+import '../screens/register_screen.dart';
 import 'package:flutter/material.dart';
+import '../screens/login_screen.dart';
 
 // Router yapılandırması
 final router = GoRouter(
@@ -45,6 +46,20 @@ final router = GoRouter(
       pageBuilder: (context, state) => NoTransitionPage<void>(
         key: state.pageKey,
         child: const MapScreen(),
+      ),
+    ),
+    GoRoute(
+      path: '/login',
+      pageBuilder: (context, state) => NoTransitionPage<void>(
+        key: state.pageKey,
+        child: const LoginScreen(),
+      ),
+    ),
+    GoRoute(
+      path: '/register',
+      pageBuilder: (context, state) => NoTransitionPage<void>(
+        key: state.pageKey,
+        child: const RegisterScreen(),
       ),
     ),
     GoRoute(

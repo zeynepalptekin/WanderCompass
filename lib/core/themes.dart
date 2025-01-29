@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ThemeProvider with ChangeNotifier {
-  bool _isDark = true;
+  bool _isDark = false;
   bool get isDark => _isDark;
 
   void toggleTheme() {
@@ -24,11 +24,11 @@ const colors = {
 };
 
 const darkColors = {
-  "primary": Color.fromARGB(255, 20, 34, 46),
+  "primary": Color.fromARGB(255, 33, 60, 84),
   "onPrimary": Color.fromARGB(255, 254, 254, 254),
-  "secondary": Color.fromARGB(255, 27, 51, 72),
+  "secondary": Color.fromARGB(255, 43, 54, 63),
   "onSecondary": Color.fromARGB(255, 255, 255, 255),
-  "surface": Color.fromARGB(255, 254, 254, 254),
+  "surface": Color.fromARGB(255, 20, 34, 46),
   "onSurface": Color.fromARGB(255, 255, 255, 255),
   "success": Color.fromARGB(255, 76, 175, 80),
   "error": Color.fromARGB(255, 244, 67, 54),
