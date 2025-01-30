@@ -121,7 +121,8 @@ lib/
   
 
 ## Ekran Görüntüleri
-[![Videoyu İzle](https://img.youtube.com/vi/7D5JAZXUdgc/0.jpg)](https://www.youtube.com/watch?v=7D5JAZXUdgc)
+https://github.com/user-attachments/assets/60a7cce2-4197-460f-ab3b-09b9d6a4c98d
+
 ![Image](https://github.com/user-attachments/assets/7d324993-3683-40a2-8d82-f2be1f292969)
 ![Image](https://github.com/user-attachments/assets/44add386-d706-44be-a7dd-8b774eeb535d)
 ![Image](https://github.com/user-attachments/assets/05fcf631-6e9a-4494-a4f4-b42e9a36e59c)
