@@ -11,7 +11,7 @@ class LoadingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(224, 64, 88, 95),
+      backgroundColor: Color.fromARGB(255, 20, 34, 46),
       body: SizedBox.expand(
         //width: double.infinity,
         child: Column(

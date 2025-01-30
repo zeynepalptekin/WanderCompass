@@ -43,7 +43,7 @@ class MapScreen extends StatelessWidget {
           "Seyahat Rotası Önerileri",
           style: TextStyle(
             color: theme.appBarTheme.titleTextStyle?.color ??
-                Colors.white, // Tema renklerine göre yazı
+                const Color.fromARGB(255, 8, 8, 8), // Tema renklerine göre yazı
             fontWeight: FontWeight.bold,
             fontSize: 24,
           ),

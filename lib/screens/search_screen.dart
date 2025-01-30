@@ -60,7 +60,7 @@ class SearchScreen extends StatelessWidget {
                 prefixIcon: Icon(Icons.search),
                 suffixIcon: IconButton(
                   icon: Icon(Icons.tune),
-                  onPressed: () {},
+                  onPressed: () => _showFilterDialog(context),
                 ),
               ),
             ),
@@ -160,6 +160,93 @@ class SearchScreen extends StatelessWidget {
         ],
       ),
       bottomNavigationBar: BottomMenu(),
+    );
+  }
+
+  void _showFilterDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text('Filtrele'),
+            IconButton(
+              icon: Icon(Icons.close),
+              onPressed: () => Navigator.pop(context),
+            ),
+          ],
+        ),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Kategoriler',
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+            SizedBox(height: 8),
+            Wrap(
+              spacing: 8,
+              children: [
+                FilterChip(
+                  label: Text('İstanbul'),
+                  selected: false,
+                  onSelected: (_) {},
+                ),
+                FilterChip(
+                  label: Text('Paris'),
+                  selected: false,
+                  onSelected: (_) {},
+                ),
+                FilterChip(
+                  label: Text('Tokyo'),
+                  selected: false,
+                  onSelected: (_) {},
+                ),
+                FilterChip(
+                  label: Text('New York'),
+                  selected: false,
+                  onSelected: (_) {},
+                ),
+                FilterChip(
+                  label: Text('Barcelona'),
+                  selected: false,
+                  onSelected: (_) {},
+                ),
+                FilterChip(
+                  label: Text('Londra'),
+                  selected: false,
+                  onSelected: (_) {},
+                ),
+              ],
+            ),
+            SizedBox(height: 16),
+            Text(
+              'Arama',
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+            SizedBox(height: 8),
+            TextField(
+              decoration: InputDecoration(
+                hintText: 'Şehir ara...',
+                prefixIcon: Icon(Icons.search),
+                border: OutlineInputBorder(),
+              ),
+            ),
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: Text('Temizle'),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.pop(context),
+            child: Text('Uygula'),
+          ),
+        ],
+      ),
     );
   }
 }
