@@ -8,6 +8,7 @@ import '../screens/home_screen.dart';
 import '../screens/register_screen.dart';
 import 'package:flutter/material.dart';
 import '../screens/login_screen.dart';
+import '../screens/settings_screen.dart';
 
 // Router yapılandırması
 final router = GoRouter(
@@ -25,6 +26,13 @@ final router = GoRouter(
       pageBuilder: (context, state) => NoTransitionPage<void>(
         key: state.pageKey,
         child: const HomeScreen(),
+      ),
+    ),
+    GoRoute(
+      path: '/settings',
+      pageBuilder: (context, state) => NoTransitionPage<void>(
+        key: state.pageKey,
+        child: const SettingsScreen(),
       ),
     ),
     GoRoute(

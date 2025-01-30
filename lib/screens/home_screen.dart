@@ -4,8 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
-
-import '../core/constants.dart';
 import '../widgets/bottom_menu.dart';
 import '../widgets/suggested_action_card.dart';
 import '../core/themes.dart';
@@ -93,7 +91,7 @@ class HomeScreen extends StatelessWidget {
             ListTile(
               leading: Icon(CupertinoIcons.settings),
               title: Text('Ayarlar'),
-              onTap: () => Navigator.pop(context),
+              onTap: () => context.go("/settings"),
             ),
             Spacer(),
             Divider(),
@@ -131,7 +129,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             Expanded(
-              flex: 4,
+              flex: 3,
               child: Container(
                 decoration: BoxDecoration(
                   color: Theme.of(context).colorScheme.surfaceVariant,

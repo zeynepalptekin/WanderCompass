@@ -10,22 +10,22 @@ class MapScreen extends StatelessWidget {
       {
         "title": "Kapadokya",
         "subtitle": "Türkiye'nin büyüleyici peri bacaları",
-        "image": "assets/images/kapadokya.jpg", // Görsel ekleyebilirsiniz
+        "image": "assets/images/kapadokya.jpg",
       },
       {
         "title": "Kültür Turu",
         "subtitle": "İtalya'nın tarihi güzellikleri",
-        "image": "assets/images/italya.jpg", // Görsel ekleyebilirsiniz
+        "image": "assets/images/italya.jpg",
       },
       {
         "title": "Kiraz Çiçekleri",
         "subtitle": "Güney Kore'de baharın muhteşem renkleri",
-        "image": "assets/images/kore.jpg", // Görsel ekleyebilirsiniz
+        "image": "assets/images/kore.jpg",
       },
       {
         "title": "Kuzey Işıkları",
         "subtitle": "Norveç'te doğanın büyüleyici ışık gösterisi",
-        "image": "assets/images/norvec.jpg", // Görsel ekleyebilirsiniz
+        "image": "assets/images/norvec.jpg",
       },
     ];
 
