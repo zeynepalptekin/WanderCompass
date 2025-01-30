@@ -121,7 +121,10 @@ lib/
   
 
 ## Ekran Görüntüleri
-https://youtube.com/shorts/7D5JAZXUdgc?feature=share
+<p align="center">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/7D5JAZXUdgc" frameborder="0" allowfullscreen></iframe>
+</p>
+
 
 
   
