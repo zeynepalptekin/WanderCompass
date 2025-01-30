@@ -11,7 +11,7 @@ class SearchScreen extends StatelessWidget {
     {
       'title': 'İstanbul',
       'description': 'Tarihin ve kültürün başkenti.',
-      'imagePath': 'assets/images/istanbul.jpg', // Resim yolu
+      'imagePath': 'assets/images/istanbul.jpg',
     },
     {
       'title': 'Paris',
@@ -116,7 +116,7 @@ class SearchScreen extends StatelessWidget {
               ),
               delegate: SliverChildBuilderDelegate(
                 (context, index) {
-                  final card = cards[index]; // Veriyi alıyoruz
+                  final card = cards[index];
                   return Card(
                     clipBehavior: Clip.antiAlias,
                     child: Column(
@@ -125,7 +125,7 @@ class SearchScreen extends StatelessWidget {
                         AspectRatio(
                           aspectRatio: 16 / 9,
                           child: Image.asset(
-                            card['imagePath']!, // Resmi yüklemek için
+                            card['imagePath']!,
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -135,13 +135,13 @@ class SearchScreen extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                card['title']!, // Başlık
+                                card['title']!,
                                 style: Theme.of(context).textTheme.titleMedium,
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
                               ),
                               Text(
-                                card['description']!, // Alt başlık
+                                card['description']!,
                                 style: Theme.of(context).textTheme.bodySmall,
                                 maxLines: 2,
                                 overflow: TextOverflow.ellipsis,

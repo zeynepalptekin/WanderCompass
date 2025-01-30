@@ -8,7 +8,6 @@ class MapScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Seyahat önerileri listesi
     final List<Map<String, String>> travelDestinations = [
       {
         "title": "Kapadokya",
@@ -32,25 +31,24 @@ class MapScreen extends StatelessWidget {
       },
     ];
 
-    final theme = Theme.of(context); // Tema verilerini buradan alıyoruz
+    final theme = Theme.of(context);
 
     return Scaffold(
-      backgroundColor: theme.colorScheme.background, // Tema arka plan rengi
+      backgroundColor: theme.colorScheme.background,
       appBar: AppBar(
-        backgroundColor: theme.primaryColor, // Tema birincil renk
+        backgroundColor: theme.primaryColor,
         elevation: 0,
         title: Text(
           "Seyahat Rotası Önerileri",
           style: TextStyle(
             color: theme.appBarTheme.titleTextStyle?.color ??
-                const Color.fromARGB(255, 8, 8, 8), // Tema renklerine göre yazı
+                const Color.fromARGB(255, 250, 250, 250),
             fontWeight: FontWeight.bold,
             fontSize: 24,
           ),
         ),
         centerTitle: true,
-        iconTheme: IconThemeData(
-            color: theme.iconTheme.color ?? Colors.white), // Tema icon rengi
+        iconTheme: IconThemeData(color: theme.iconTheme.color ?? Colors.white),
       ),
       body: Column(
         children: [
@@ -62,7 +60,7 @@ class MapScreen extends StatelessWidget {
                 itemBuilder: (context, index) {
                   final destination = travelDestinations[index];
                   return _buildTravelCard(
-                    context: context, // context'i geçiyoruz
+                    context: context,
                     title: destination["title"]!,
                     subtitle: destination["subtitle"]!,
                     imagePath: destination["image"]!,
@@ -71,7 +69,6 @@ class MapScreen extends StatelessWidget {
               ),
             ),
           ),
-          // BottomMenu widget'ı burada kullanılıyor
           const BottomMenu(),
         ],
       ),
@@ -79,18 +76,18 @@ class MapScreen extends StatelessWidget {
   }
 
   Widget _buildTravelCard({
-    required BuildContext context, // context parametresi eklendi
+    required BuildContext context,
     required String title,
     required String subtitle,
     required String imagePath,
   }) {
-    final theme = Theme.of(context); // Tema verilerini burada da alıyoruz
+    final theme = Theme.of(context);
 
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: Container(
         decoration: BoxDecoration(
-          color: theme.cardColor, // Tema kart rengi
+          color: theme.cardColor,
           borderRadius: BorderRadius.circular(12),
           boxShadow: [
             BoxShadow(
@@ -103,7 +100,6 @@ class MapScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Şehir Görseli
             AspectRatio(
               aspectRatio: 16 / 9,
               child: Image.asset(
@@ -111,7 +107,7 @@ class MapScreen extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-            // Başlık ve Alt Başlık
+
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Column(
@@ -122,8 +118,7 @@ class MapScreen extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 22,
                       fontWeight: FontWeight.bold,
-                      color: theme
-                          .textTheme.titleLarge?.color, // Tema başlık rengi
+                      color: theme.textTheme.titleLarge?.color,
                     ),
                   ),
                   const SizedBox(height: 8),
@@ -131,8 +126,7 @@ class MapScreen extends StatelessWidget {
                     subtitle,
                     style: TextStyle(
                       fontSize: 16,
-                      color:
-                          theme.textTheme.bodyMedium?.color, // Tema metin rengi
+                      color: theme.textTheme.bodyMedium?.color,
                     ),
                   ),
                 ],
@@ -149,8 +143,7 @@ class MapScreen extends StatelessWidget {
                     print("Daha fazla bilgi için: $title");
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor:
-                        theme.colorScheme.secondary, // Tema vurgulama rengi
+                    backgroundColor: theme.colorScheme.secondary,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
                     ),
@@ -158,8 +151,7 @@ class MapScreen extends StatelessWidget {
                   child: Text(
                     "Daha Fazla",
                     style: TextStyle(
-                      color: theme.textTheme.labelLarge?.color ??
-                          Colors.white, // Tema buton yazı rengi
+                      color: theme.textTheme.labelLarge?.color ?? Colors.white,
                     ),
                   ),
                 ),

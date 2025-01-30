@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import '../widgets/bottom_menu.dart';
-import '../core/themes.dart'; // Tema dosyasını ekledik
+import '../core/themes.dart';
 
 class CameraScreen extends StatelessWidget {
   CameraScreen({super.key});
@@ -9,15 +9,15 @@ class CameraScreen extends StatelessWidget {
   final List<Map<String, String>> cards = [
     {
       'userName': 'Zeynep',
-      'userImage': 'assets/images/profile1.jpg', // Profil Resmi
-      'postImage': 'assets/images/machu_picchu.jpg', // Paylaşım Resmi
+      'userImage': 'assets/images/profile1.jpg',
+      'postImage': 'assets/images/machu_picchu.jpg',
       'description':
           "Machu Picchu'ya gitmek, hayatımda yaptığım en unutulmaz yolculuklardan biriydi. Peru'nun yüksek dağlarında, antik Inka medeniyetinin izlerini görmek bana gerçekten çok şey öğretti...",
     },
     {
       'userName': 'Gökhan',
-      'userImage': 'assets/images/profile2.jpg', // Profil Resmi
-      'postImage': 'assets/images/banff_canada.jpg', // Paylaşım Resmi
+      'userImage': 'assets/images/profile2.jpg',
+      'postImage': 'assets/images/banff_canada.jpg',
       'description':
           "Kanada'nın Banff Milli Parkı, doğa severler için bir cennet. Sadece görsel güzellikleriyle değil, aynı zamanda sunduğu macera olanaklarıyla da dikkat çekiyor...",
     },
@@ -25,16 +25,15 @@ class CameraScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context); // Tema verilerini buradan alıyoruz
+    final theme = Theme.of(context);
 
     return Scaffold(
       appBar: AppBar(
         title: Text(
           'Gezgin Paylaşımları',
-          style: theme
-              .appBarTheme.titleTextStyle, // Tema rengi ve stiline göre yazı
+          style: theme.appBarTheme.titleTextStyle,
         ),
-        backgroundColor: theme.primaryColor, // Tema birincil renk
+        backgroundColor: theme.primaryColor,
         elevation: 0,
       ),
       body: CustomScrollView(
@@ -54,14 +53,12 @@ class CameraScreen extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        // Kullanıcı Bilgisi
                         Padding(
                           padding: const EdgeInsets.all(12.0),
                           child: Row(
                             children: [
                               CircleAvatar(
-                                backgroundImage: AssetImage(
-                                    card['userImage']!), // Profil fotoğrafı
+                                backgroundImage: AssetImage(card['userImage']!),
                               ),
                               const SizedBox(width: 8),
                               Expanded(
@@ -71,7 +68,7 @@ class CameraScreen extends StatelessWidget {
                                     fontSize: 18,
                                     fontWeight: FontWeight.bold,
                                     color: theme.textTheme.bodyLarge?.color ??
-                                        Colors.black, // Tema rengi
+                                        Colors.black,
                                   ),
                                   overflow: TextOverflow.ellipsis,
                                 ),
@@ -79,17 +76,13 @@ class CameraScreen extends StatelessWidget {
                             ],
                           ),
                         ),
-
-                        // Paylaşım Görseli
                         AspectRatio(
                           aspectRatio: 16 / 9,
                           child: Image.asset(
-                            card['postImage']!, // Paylaşım fotoğrafı
+                            card['postImage']!,
                             fit: BoxFit.cover,
                           ),
                         ),
-
-                        // Yazı
                         Padding(
                           padding: const EdgeInsets.all(12.0),
                           child: Text(
@@ -97,12 +90,10 @@ class CameraScreen extends StatelessWidget {
                             style: TextStyle(
                               fontSize: 16,
                               color: theme.textTheme.bodyMedium?.color ??
-                                  Colors.black87, // Tema rengi
+                                  Colors.black87,
                             ),
                           ),
                         ),
-
-                        // İkonlar
                         Padding(
                           padding: const EdgeInsets.symmetric(
                               horizontal: 12.0, vertical: 8.0),
@@ -111,22 +102,22 @@ class CameraScreen extends StatelessWidget {
                             children: [
                               IconButton(
                                 icon: Icon(CupertinoIcons.heart,
-                                    color: theme.iconTheme.color), // Tema rengi
+                                    color: theme.iconTheme.color),
                                 onPressed: () {},
                               ),
                               IconButton(
                                 icon: Icon(CupertinoIcons.bubble_left,
-                                    color: theme.iconTheme.color), // Tema rengi
+                                    color: theme.iconTheme.color),
                                 onPressed: () {},
                               ),
                               IconButton(
                                 icon: Icon(CupertinoIcons.share,
-                                    color: theme.iconTheme.color), // Tema rengi
+                                    color: theme.iconTheme.color),
                                 onPressed: () {},
                               ),
                               IconButton(
                                 icon: Icon(CupertinoIcons.bookmark,
-                                    color: theme.iconTheme.color), // Tema rengi
+                                    color: theme.iconTheme.color),
                                 onPressed: () {},
                               ),
                             ],

@@ -16,7 +16,6 @@ class LoadingScreen extends StatelessWidget {
         //width: double.infinity,
         child: Column(
           children: [
-            // Logo bölümü
             Expanded(
               child: SizedBox(
                 width: 300,
@@ -27,10 +26,6 @@ class LoadingScreen extends StatelessWidget {
                 ),
               ),
             ),
-
-            // Yükleniyor yazısı
-            //CircularProgressIndicator(),
-
             InkWell(
               onTap: () => context.go("/home"),
               child: SizedBox(
