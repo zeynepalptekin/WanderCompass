@@ -53,7 +53,7 @@ final router = GoRouter(
       path: '/map',
       pageBuilder: (context, state) => NoTransitionPage<void>(
         key: state.pageKey,
-        child: const MapScreen(),
+        child: MapScreen(),
       ),
     ),
     GoRoute(

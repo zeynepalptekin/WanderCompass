@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import '../widgets/bottom_menu.dart';
+import '../core/themes.dart'; // Tema dosyasını ekledik
 
 class CameraScreen extends StatelessWidget {
   CameraScreen({super.key});
@@ -24,9 +25,17 @@ class CameraScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context); // Tema verilerini buradan alıyoruz
+
     return Scaffold(
       appBar: AppBar(
-        title: Text('Gezgin Paylaşımları'),
+        title: Text(
+          'Gezgin Paylaşımları',
+          style: theme
+              .appBarTheme.titleTextStyle, // Tema rengi ve stiline göre yazı
+        ),
+        backgroundColor: theme.primaryColor, // Tema birincil renk
+        elevation: 0,
       ),
       body: CustomScrollView(
         slivers: [
@@ -61,7 +70,8 @@ class CameraScreen extends StatelessWidget {
                                   style: TextStyle(
                                     fontSize: 18,
                                     fontWeight: FontWeight.bold,
-                                    color: Colors.black,
+                                    color: theme.textTheme.bodyLarge?.color ??
+                                        Colors.black, // Tema rengi
                                   ),
                                   overflow: TextOverflow.ellipsis,
                                 ),
@@ -84,9 +94,10 @@ class CameraScreen extends StatelessWidget {
                           padding: const EdgeInsets.all(12.0),
                           child: Text(
                             card['description']!,
-                            style: const TextStyle(
+                            style: TextStyle(
                               fontSize: 16,
-                              color: Colors.black87,
+                              color: theme.textTheme.bodyMedium?.color ??
+                                  Colors.black87, // Tema rengi
                             ),
                           ),
                         ),
@@ -99,19 +110,23 @@ class CameraScreen extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               IconButton(
-                                icon: Icon(CupertinoIcons.heart),
+                                icon: Icon(CupertinoIcons.heart,
+                                    color: theme.iconTheme.color), // Tema rengi
                                 onPressed: () {},
                               ),
                               IconButton(
-                                icon: Icon(CupertinoIcons.bubble_left),
+                                icon: Icon(CupertinoIcons.bubble_left,
+                                    color: theme.iconTheme.color), // Tema rengi
                                 onPressed: () {},
                               ),
                               IconButton(
-                                icon: Icon(CupertinoIcons.share),
+                                icon: Icon(CupertinoIcons.share,
+                                    color: theme.iconTheme.color), // Tema rengi
                                 onPressed: () {},
                               ),
                               IconButton(
-                                icon: Icon(CupertinoIcons.bookmark),
+                                icon: Icon(CupertinoIcons.bookmark,
+                                    color: theme.iconTheme.color), // Tema rengi
                                 onPressed: () {},
                               ),
                             ],

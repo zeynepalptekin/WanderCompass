@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../core/themes.dart';
+import '../widgets/bottom_menu.dart';
 
 class MapScreen extends StatelessWidget {
   const MapScreen({super.key});
@@ -29,53 +32,68 @@ class MapScreen extends StatelessWidget {
       },
     ];
 
+    final theme = Theme.of(context); // Tema verilerini buradan alıyoruz
+
     return Scaffold(
-      backgroundColor: const Color(0xFFF0F4F8),
+      backgroundColor: theme.colorScheme.background, // Tema arka plan rengi
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 141, 193, 218),
+        backgroundColor: theme.primaryColor, // Tema birincil renk
         elevation: 0,
-        title: const Text(
+        title: Text(
           "Seyahat Rotası Önerileri",
           style: TextStyle(
-            color: Colors.white,
+            color: theme.appBarTheme.titleTextStyle?.color ??
+                Colors.white, // Tema renklerine göre yazı
             fontWeight: FontWeight.bold,
             fontSize: 24,
           ),
         ),
         centerTitle: true,
-        iconTheme: const IconThemeData(color: Colors.white),
+        iconTheme: IconThemeData(
+            color: theme.iconTheme.color ?? Colors.white), // Tema icon rengi
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: ListView.builder(
-          itemCount: travelDestinations.length,
-          itemBuilder: (context, index) {
-            final destination = travelDestinations[index];
-            return _buildTravelCard(
-              title: destination["title"]!,
-              subtitle: destination["subtitle"]!,
-              imagePath: destination["image"]!,
-            );
-          },
-        ),
+      body: Column(
+        children: [
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: ListView.builder(
+                itemCount: travelDestinations.length,
+                itemBuilder: (context, index) {
+                  final destination = travelDestinations[index];
+                  return _buildTravelCard(
+                    context: context, // context'i geçiyoruz
+                    title: destination["title"]!,
+                    subtitle: destination["subtitle"]!,
+                    imagePath: destination["image"]!,
+                  );
+                },
+              ),
+            ),
+          ),
+          // BottomMenu widget'ı burada kullanılıyor
+          const BottomMenu(),
+        ],
       ),
     );
   }
 
   Widget _buildTravelCard({
+    required BuildContext context, // context parametresi eklendi
     required String title,
     required String subtitle,
     required String imagePath,
   }) {
+    final theme = Theme.of(context); // Tema verilerini burada da alıyoruz
+
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: theme.cardColor, // Tema kart rengi
           borderRadius: BorderRadius.circular(12),
           boxShadow: [
             BoxShadow(
-              // ignore: deprecated_member_use
               color: Colors.black.withOpacity(0.1),
               blurRadius: 10,
               offset: const Offset(0, 5),
@@ -101,10 +119,11 @@ class MapScreen extends StatelessWidget {
                 children: [
                   Text(
                     title,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 22,
                       fontWeight: FontWeight.bold,
-                      color: Colors.black87,
+                      color: theme
+                          .textTheme.titleLarge?.color, // Tema başlık rengi
                     ),
                   ),
                   const SizedBox(height: 8),
@@ -112,7 +131,8 @@ class MapScreen extends StatelessWidget {
                     subtitle,
                     style: TextStyle(
                       fontSize: 16,
-                      color: Colors.grey.shade600,
+                      color:
+                          theme.textTheme.bodyMedium?.color, // Tema metin rengi
                     ),
                   ),
                 ],
@@ -126,19 +146,20 @@ class MapScreen extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () {
                     // Daha fazla bilgi veya detay sayfasına yönlendirme
-                    // ignore: avoid_print
                     print("Daha fazla bilgi için: $title");
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF80CBC4),
+                    backgroundColor:
+                        theme.colorScheme.secondary, // Tema vurgulama rengi
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
                     ),
                   ),
-                  child: const Text(
+                  child: Text(
                     "Daha Fazla",
                     style: TextStyle(
-                      color: Colors.white,
+                      color: theme.textTheme.labelLarge?.color ??
+                          Colors.white, // Tema buton yazı rengi
                     ),
                   ),
                 ),

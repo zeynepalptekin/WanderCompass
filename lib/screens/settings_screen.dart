@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../widgets/bottom_menu.dart';
 
 import '../core/themes.dart';
 
@@ -78,6 +79,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           ),
         ],
       ),
+      bottomNavigationBar: BottomMenu(),
     );
   }
 }
