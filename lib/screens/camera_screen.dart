@@ -1,54 +1,49 @@
 import 'package:flutter/material.dart';
+import '../widgets/bottom_menu.dart';
 
-class CameraScreen extends StatelessWidget {
+class CameraScreen extends StatefulWidget {
   const CameraScreen({super.key});
 
+  @override
+  State<CameraScreen> createState() => _CameraScreenState();
+}
+
+class _CameraScreenState extends State<CameraScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color(0xFF80CBC4),
-        title: const Text(
-          "Paylaşımlar",
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-            fontSize: 24,
+        title: Text('Gezgin Paylaşımları'),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.filter_list),
+            onPressed: () => _showFilterDialog(context),
           ),
-        ),
-        centerTitle: true,
+        ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: ListView(
-          children: [
-            _buildUserPost(
-              context,
-              userName: "Zeynep",
-              userImage: "assets/images/profile1.jpg", // Profil resmi
-              postImage:
-                  "assets/images/machu_picchu.jpg", // Paylaşılan yer resmi
-              postText:
-                  "Machu Picchu'ya gitmek, hayatımda yaptığım en unutulmaz yolculuklardan biriydi. Peru'nun yüksek dağlarında, antik Inka medeniyetinin izlerini görmek bana gerçekten çok şey öğretti. Yürüyüşler yapmak, bölgenin doğal güzelliklerine tanık olmak harika bir deneyimdi. Eğer bu bölgeye gitmeyi düşünüyorsanız, erken saatlerde yola çıkmanızı öneririm çünkü kalabalıklar henüz gelmeden, sakin bir şekilde bu muazzam yapıları keşfetmek çok daha keyifli oluyor. Ayrıca, sıcak hava koşullarına karşı hazırlıklı olmanızı tavsiye ederim, çünkü yükseklik nedeniyle hava bazen beklenmedik şekilde değişebiliyor. Bu harika yerin büyüsünü keşfetmek için bir gün mutlaka tekrar gelmeyi planlıyorum.",
-            ),
-            const SizedBox(height: 16),
-            _buildUserPost(
-              context,
-              userName: "Gökhan",
-              userImage: "assets/images/profile2.jpg", // Profil resmi
-              postImage:
-                  "assets/images/banff_canada.jpg", // Paylaşılan yer resmi
-              postText:
-                  "Kanada'nın Banff Milli Parkı, doğa severler için bir cennet. Sadece görsel güzellikleriyle değil, aynı zamanda sunduğu macera olanaklarıyla da dikkat çekiyor. Banff'te yürüyüş yaparken, göllerin ve dağların mükemmel uyumunu izlemek insanı büyülüyor. Eğer burada doğa yürüyüşleri yapmayı planlıyorsanız, başlangıç seviyesinden ileri düzeye kadar pek çok parkur mevcut. Özellikle yaz aylarında yürüyüş yapmak için ideal, ancak kışın da kayak yapma fırsatı sunan parkurları ile burası dört mevsim keşfedilebilecek bir yer. Kışın gidecekseniz, kayak malzemelerinizi ve sıcak giysilerinizi unutmamalısınız! Banff'te geçirdiğim her anı unutamam, doğal güzellikleriyle kendimi doğanın bir parçası gibi hissettim. Tekrar gelmek için sabırsızlanıyorum!",
-            ),
-          ],
-        ),
+      body: ListView(
+        children: [
+          _buildUserPost(
+            userName: "Zeynep",
+            userImage: "assets/images/profile1.jpg", // Profil Resmi
+            postImage: "assets/images/machu_picchu.jpg", // Paylaşım Resmi
+            postText:
+                "Machu Picchu'ya gitmek, hayatımda yaptığım en unutulmaz yolculuklardan biriydi. Peru'nun yüksek dağlarında, antik Inka medeniyetinin izlerini görmek bana gerçekten çok şey öğretti...",
+          ),
+          _buildUserPost(
+            userName: "Gökhan",
+            userImage: "assets/images/profile2.jpg", // Profil Resmi
+            postImage: "assets/images/banff_canada.jpg", // Paylaşım Resmi
+            postText:
+                "Kanada'nın Banff Milli Parkı, doğa severler için bir cennet. Sadece görsel güzellikleriyle değil, aynı zamanda sunduğu macera olanaklarıyla da dikkat çekiyor...",
+          ),
+        ],
       ),
+      bottomNavigationBar: BottomMenu(),
     );
   }
 
-  Widget _buildUserPost(
-    BuildContext context, {
+  Widget _buildUserPost({
     required String userName,
     required String userImage,
     required String postImage,
@@ -100,6 +95,114 @@ class CameraScreen extends StatelessWidget {
                 color: Colors.black87,
               ),
             ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void _showFilterDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text('Filtrele'),
+            IconButton(
+              icon: Icon(Icons.close),
+              onPressed: () => Navigator.pop(context),
+            ),
+          ],
+        ),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Aktivite Seçin',
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+            SizedBox(height: 8),
+            Wrap(
+              spacing: 8,
+              children: [
+                FilterChip(
+                  label: Text('Doğa Yürüyüşleri'),
+                  selected: true,
+                  onSelected: (_) {},
+                ),
+                FilterChip(
+                  label: Text('Tarihi Yerler'),
+                  selected: false,
+                  onSelected: (_) {},
+                ),
+                FilterChip(
+                  label: Text('Dağcılık'),
+                  selected: false,
+                  onSelected: (_) {},
+                ),
+                FilterChip(
+                  label: Text('Plajlar'),
+                  selected: false,
+                  onSelected: (_) {},
+                ),
+              ],
+            ),
+            SizedBox(height: 16),
+            Text(
+              'Arama',
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+            SizedBox(height: 8),
+            TextField(
+              decoration: InputDecoration(
+                hintText: 'Yer veya Aktivite Ara...',
+                prefixIcon: Icon(Icons.search),
+                border: OutlineInputBorder(),
+              ),
+            ),
+            SizedBox(height: 16),
+            Text(
+              'Fiyat Aralığı',
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+            SizedBox(height: 8),
+            Row(
+              children: [
+                Expanded(
+                  child: TextField(
+                    decoration: InputDecoration(
+                      hintText: 'Min',
+                      prefixText: '₺',
+                      border: OutlineInputBorder(),
+                    ),
+                    keyboardType: TextInputType.number,
+                  ),
+                ),
+                SizedBox(width: 16),
+                Expanded(
+                  child: TextField(
+                    decoration: InputDecoration(
+                      hintText: 'Max',
+                      prefixText: '₺',
+                      border: OutlineInputBorder(),
+                    ),
+                    keyboardType: TextInputType.number,
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: Text('Temizle'),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.pop(context),
+            child: Text('Uygula'),
           ),
         ],
       ),

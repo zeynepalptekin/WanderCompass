@@ -66,7 +66,7 @@ final router = GoRouter(
         path: '/search',
         pageBuilder: (context, state) => NoTransitionPage<void>(
               key: state.pageKey,
-              child: const SearchScreen(),
+              child: SearchScreen(),
             )),
   ],
 );
