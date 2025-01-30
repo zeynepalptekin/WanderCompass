@@ -121,14 +121,8 @@ lib/
   
 
 ## Ekran Görüntüleri
+https://youtube.com/shorts/7D5JAZXUdgc?feature=share
 
-[https://github.com/zeynepalptekin/WanderCompass/blob/main/giris.png]
-[(https://github.com/zeynepalptekin/WanderCompass/blob/main/anasayfa.png)]
-[https://github.com/zeynepalptekin/WanderCompass/blob/main/yanmenu.png]
-[(https://github.com/zeynepalptekin/WanderCompass/blob/main/arama.png)]
-[https://github.com/zeynepalptekin/WanderCompass/blob/main/konum.png]
-[https://github.com/zeynepalptekin/WanderCompass/blob/main/medya.png]
-[https://github.com/zeynepalptekin/WanderCompass/blob/main/profil.png]
 
   
 
