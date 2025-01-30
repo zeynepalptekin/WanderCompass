@@ -46,7 +46,7 @@ final router = GoRouter(
       path: '/camera',
       pageBuilder: (context, state) => NoTransitionPage<void>(
         key: state.pageKey,
-        child: const CameraScreen(),
+        child: CameraScreen(),
       ),
     ),
     GoRoute(

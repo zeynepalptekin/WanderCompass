@@ -49,14 +49,14 @@ class HomeScreen extends StatelessWidget {
             ),
             // Menü öğeleri
             ListTile(
-              leading: Icon(CupertinoIcons.home),
+              leading: Icon(Icons.home),
               title: Text('Ana Sayfa'),
-              onTap: () => Navigator.pop(context),
+              onTap: () => context.go("/home"),
             ),
             ListTile(
               leading: Icon(CupertinoIcons.search),
               title: Text('Arama'),
-              onTap: () => Navigator.pop(context),
+              onTap: () => context.go("/search"),
             ),
             ListTile(
               leading: Icon(CupertinoIcons.photo),
